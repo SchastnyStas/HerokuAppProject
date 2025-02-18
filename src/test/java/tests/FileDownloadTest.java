@@ -11,6 +11,7 @@ import java.io.File;
 import java.util.HashMap;
 
 public class FileDownloadTest {
+
     @Test
     public void checkFileDownLoad() throws InterruptedException {
         HashMap<String, Object> chromePrefs = new HashMap<>();
