@@ -14,9 +14,9 @@ public class FileUploadTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/upload");
         String pathToFile = System.getProperty("user.dir") + "/src/test/resources/text.txt";
-        driver.findElement(By.xpath("//*[@id='file-upload']")).sendKeys(pathToFile);
-        driver.findElement(By.xpath("//*[@id='file-submit']")).click();
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id='uploaded-files']")).getText(), "text.txt");
+        driver.findElement(By.id("file-upload")).sendKeys(pathToFile);
+        driver.findElement(By.id("file-submit")).click();
+        Assert.assertEquals(driver.findElement(By.id("uploaded-files")).getText(), "text.txt");
         driver.quit();
     }
 }

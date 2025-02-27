@@ -16,7 +16,7 @@ public class ContextMenuTest {
         WebDriver driver = new ChromeDriver();
         Actions action = new Actions(driver);
         driver.get("https://the-internet.herokuapp.com/context_menu");
-        action.contextClick(driver.findElement(By.xpath("//*[@id='hot-spot']"))).perform();
+        action.contextClick(driver.findElement(By.id("hot-spot"))).perform();
         Alert alert = driver.switchTo().alert();
         String alertText = alert.getText();
         Assert.assertEquals(alertText, "You selected a context menu");

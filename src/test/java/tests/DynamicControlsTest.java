@@ -25,11 +25,11 @@ public class DynamicControlsTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         String afterRemoveText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='message']"))).getText();
         softAssert.assertEquals(afterRemoveText, "It's gone!");
-        int numberOfElements = driver.findElements(By.xpath("//*[@id='checkbox']")).size();
+        int numberOfElements = driver.findElements(By.id("checkbox")).size();
         softAssert.assertEquals(numberOfElements, 0, "Элемент присутствует на странице");
         assertFalse("Поле ввода должно быть недоступно.", driver.findElement(By.xpath("//*[@type='text']")).isEnabled());
         driver.findElement(By.xpath("//*[@onclick='swapInput()']")).click();
-        String afterEnableText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='message']"))).getText();
+        String afterEnableText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("message"))).getText();
         softAssert.assertEquals(afterEnableText, "It's enabled!");
         assertTrue("Поле ввода должно быть доступно.", driver.findElement(By.xpath("//*[@type='text']")).isEnabled());
         softAssert.assertAll();
